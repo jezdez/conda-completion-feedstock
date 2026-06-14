@@ -1,5 +1,5 @@
 context:
-  version: "0.2.0"
+  version: "0.3.0"
   python_min: "3.10"
 
 recipe:
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://github.com/conda-incubator/conda-completion/archive/refs/tags/${{ version }}.tar.gz
-  sha256: f0578cc3f82ab6bd648e473e48847acc4e6c80055d83cfc9ebd041678beb2431
+  sha256: 757e434d199634c7312d219195ad074225b49e09c0b4dac94b54f032f47824b1
 
 build:
   number: 0
@@ -60,6 +60,8 @@ outputs:
       version: ${{ version }}
     build:
       number: 0
+      skip:
+        - not linux64
       noarch: python
       script:
         env:
