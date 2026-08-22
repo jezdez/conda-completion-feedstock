@@ -1,6 +1,5 @@
 context:
   version: "0.3.0"
-  python_min: "3.10"
 
 recipe:
   name: conda-completion-split
@@ -54,6 +53,8 @@ outputs:
       - package_contents:
           files:
             - python-scripts/_conda_completer*
+      - script:
+          - python -c "import subprocess, conda_completer; assert subprocess.run([conda_completer.find_completer_binary()]).returncode == 1"
 
   - package:
       name: conda-completion
